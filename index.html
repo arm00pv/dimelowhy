@@ -45,9 +45,9 @@
 							</header>
 							<a class="image featured"><img src="images/dimelowhy3.jpg" alt="" /></a>
 						<div class="row">
-							<section class="col-6 col-12-mobile">
+							<section class="col-6 col-12-mobile fade-in-element">
 									<header>
-										<h3>Tarifas Básicas</h3>
+										<h3><i class="fas fa-money-bill-wave"></i> Tarifas Básicas</h3>
 									</header>
 									<p>
 										Nuestra tarifa básica de grabación comienza en $200 con 3 horas de grabación, por tema** ¹.
@@ -56,9 +56,9 @@
 										Nuestra tarifa básica de coaching $50 por tema**.
 									</p>
 								</section>
-								<section class="col-6 col-12-mobile">
+								<section class="col-6 col-12-mobile fade-in-element">
 									<header>
-										<h3>Oferta Especial</h3>
+										<h3><i class="fas fa-star"></i> Oferta Especial</h3>
 									</header>
 									<p>
 										Actualmente poseemos una oferta especial de mezcla y pista incluida con 3 hora de grabación por $400** ¹.
@@ -68,11 +68,13 @@
 									</p>
 								</section>
 						</div>
-                        <section>
+                        <section class="contact-section">
                         <header>
                         <h3>Contacto</h3>
                         </header>
-                        <p><a href="mailto:lafabriicarecords@gmail.com">lafabriicarecords@gmail.com</a>
+                        <p class="contact-info"><a href="mailto:lafabriicarecords@gmail.com">lafabriicarecords@gmail.com</a>
+                        </p>
+                        <p class="contact-action"><a href="mailto:lafabriicarecords@gmail.com" class="button">Contact Me</a>
                         </p>
                         </section>
 						</article>
@@ -126,5 +128,33 @@
 			<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript"></script>
 			<script type="text/javascript">Calendly.initBadgeWidget({ url: 'https://calendly.com/dimelowhy/60min', text: 'Presiona para sacar cita', color: '#00a2ff', textColor: '#ffffff', branding: true });</script>
 			<!-- Calendly badge widget end -->
+			<script>
+				$(function() {
+					var $window = $(window),
+						$fade_in_elements = $('.fade-in-element');
+
+					function fade_in_elements_in_view() {
+						var window_height = $window.height();
+						var window_top_position = $window.scrollTop();
+						var window_bottom_position = (window_top_position + window_height);
+
+						$.each($fade_in_elements, function() {
+							var $element = $(this);
+							var element_height = $element.outerHeight();
+							var element_top_position = $element.offset().top;
+							var element_bottom_position = (element_top_position + element_height);
+
+							//check to see if this current container is within viewport
+							if ((element_bottom_position >= window_top_position) &&
+								(element_top_position <= window_bottom_position)) {
+								$element.addClass('is-visible');
+							}
+						});
+					}
+
+					$window.on('scroll resize', fade_in_elements_in_view);
+					$window.trigger('scroll');
+				});
+			</script>
 	</body>
 </html>
