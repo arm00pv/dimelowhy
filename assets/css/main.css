@@ -1763,7 +1763,7 @@ header .icon.circled {
 /* Header */
 #header {
   position: relative;
-  background-image: url("../images/header-bg.jpg");
+  background-image: url("../images/header2.jpg");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
@@ -2570,6 +2570,10 @@ body.homepage.is-preload #header:after {
   .carousel article .image {
     margin-bottom: 2em;
   }
+}
+
+.gallery-image {
+  border: 2px solid white;
 }
 
 /*# sourceMappingURL=main.css.map */
